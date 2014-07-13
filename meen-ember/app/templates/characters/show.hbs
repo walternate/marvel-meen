@@ -1,0 +1,19 @@
+<header class="row">
+	<h1 class="small-12 columns">
+		{{name}}
+		<small>{{#link-to 'characters'}}Back to characters{{/link-to}}</small>
+	</h1>
+</header>
+
+<div class="row">
+	<div class="medium-3 columns">
+		<img {{bind-attr src=thumbnail.src}}>
+	</div>
+	<div class="medium-9 columns">
+		<strong>{{name}}</strong>
+		<p>{{description}}</p>
+		<i>{{modified}}</i>
+	</div>
+</div>
+
+{{view "comics" comicsId=comics}}

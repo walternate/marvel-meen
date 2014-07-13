@@ -1,0 +1,19 @@
+{{#if view.comics.length}}
+<div class="row">
+	<br><br>
+	<div class="small-12 columns">
+		<table>
+			<thead>
+				<th>Comic Names</th>
+			</thead>
+			<tbody>
+				{{#each comic in view.comics}}
+					<tr>
+						<td><small>{{comic.name}}</small></td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</div>
+{{/if}}

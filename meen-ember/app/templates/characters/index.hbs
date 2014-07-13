@@ -1,0 +1,26 @@
+<header class="row">
+	<h1 class="small-12 columns">Characters</h1>
+</header>
+
+<div class="row">
+	<table class="small-12 columns">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Modified</th>
+				<th>Thumbnail</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each}}
+				{{#link-to 'characters.show' this tagName="tr"}}
+					<td>{{name}}</td>
+					<td>{{description}}</td>
+					<td>{{modified}}</td>
+					<td><img {{bind-attr src=thumbnail.src}}></td>
+				{{/link-to}}
+			{{/each}}
+		</tbody>
+	</table>
+</div>
