@@ -11,9 +11,13 @@
 	</div>
 	<div class="medium-9 columns">
 		<strong>{{name}}</strong>
-		<p>{{description}}</p>
+		<p>{{viewDescription}}</p>
 		<i>{{modified}}</i>
 	</div>
 </div>
 
-{{view "comics" comicsId=comics}}
+{{view "comics" 
+		comicsId=comics 
+		seriesId=series 
+		storiesId=stories 
+		eventsId=events}}

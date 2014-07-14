@@ -2,7 +2,9 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
+
   description: DS.attr('string'),
+  
   modified: DS.attr('string', {
   	defaultValue: function() {
   		return new Date();
@@ -15,5 +17,11 @@ export default DS.Model.extend({
 
   comics: DS.belongsTo("comic"),
 
-  series: DS.hasMany("series"),
+  series: DS.belongsTo("series"),
+
+  stories: DS.belongsTo("story"),
+
+  events: DS.belongsTo("event"),
+
+  urls: DS.hasMany("url")
 });

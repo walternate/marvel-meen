@@ -1,19 +1,59 @@
-{{#if view.comics.length}}
+<br>
 <div class="row">
-	<br><br>
-	<div class="small-12 columns">
-		<table>
-			<thead>
-				<th>Comic Names</th>
-			</thead>
-			<tbody>
-				{{#each comic in view.comics}}
-					<tr>
-						<td><small>{{comic.name}}</small></td>
-					</tr>
+	
+	{{#if view.comics.length}}
+		<div class="medium-3 columns">
+			<ul class="pricing-table">
+				<li class="title">Comic Names</li>
+				{{#each c in view.comics}}
+					<li class="bullet-item">{{c.name}}</li>
 				{{/each}}
-			</tbody>
-		</table>
-	</div>
+			</ul>
+		</div>
+	{{/if}}
+
+	{{#if view.series.length}}
+		<div class="medium-3 columns">
+			<ul class="pricing-table">
+				<li class="title">Series Names</li>
+				{{#each s in view.series}}
+					<li class="bullet-item">{{s.name}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	{{/if}}
+
+	{{#if view.stories.length}}
+		<div class="medium-3 columns">
+			<ul class="pricing-table">
+				<li class="title">Story Names</li>
+				{{#each st in view.stories}}
+					<li class="bullet-item">{{st.name}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	{{/if}}
+
+
+	{{#if view.events.length}}
+		<div class="medium-3 columns">
+			<ul class="pricing-table">
+				<li class="title">Event Names</li>
+				{{#each e in view.events}}
+					<li class="bullet-item">{{e.name}}</li>
+				{{/each}}
+			</ul>
+		</div>	
+	{{/if}}
+
+	{{#if urls.length}}
+		<div class="small-12 columns">
+			<h5>Related Links:</h5>
+			<ul>
+				{{#each urls}}
+					<li><a {{bind-attr href=this.url}}>{{this.kind}}</a></li>
+				{{/each}}
+			</ul>
+		</div>
+	{{/if}}
 </div>
-{{/if}}

@@ -77,11 +77,29 @@ router.get('/api/v1/characters', function(req, res) {
 			normalize.normalizeRecords(result, 'series', 'series', 'characters');
 			normalize.normalizeRecords(result, 'items', 'items', 'series');
 
-			// normalize.normalizeRecords(result, 'stories', 'stories', 'characters');
-			// normalize.normalizeRecords(result, 'events', 'events', 'characters');
-			// normalize.normalizeRecords(result, 'urls', 'urls', 'characters');
+			normalize.normalizeRecords(result, 'stories', 'stories', 'characters');
+			normalize.normalizeRecords(result, 'items', 'items', 'stories');
 
-			// Second level item normalizing
+			normalize.normalizeRecords(result, 'events', 'events', 'characters');
+			normalize.normalizeRecords(result, 'items', 'items', 'events');
+
+			normalize.normalizeRecords(result, 'urls', 'urls', 'characters');
+
+
+			result.items.forEach(function(item) {
+				if( item.type ) {
+					delete item.type;
+				}
+				return item;
+			});
+
+			result.urls.forEach(function(url) {
+				if( url.type ) {
+					url.kind = url.type;
+					delete url.type;
+				}
+				return url;
+			});
 
 			res.json(200, result);
 		}
